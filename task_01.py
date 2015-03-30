@@ -4,28 +4,21 @@
 
 
 def get_matches(players):
-    """game.
+    """game and players.
 
     Args:
         players [list]: names
 
     return:
-        list: names of the player pairs
+        list: list of tuples with two player names
 
     examples:
         >>>get_matches(['James', 'Jesse', 'Jennifer'])
-        >>>(0, 'James')
-            (1, 'Jesse')
-            (2, 'Jennifer')
-
+        >>>[('James', 'Jesse'), ('James', 'Jennifer'), ('Jesse', 'Jennifer')]
     """
     newlist = []
-    list_len = len(playerlist)
-    for idx, players in enumerate(players):
-        innerlist = []
-        st_idx = idx+1
-        for i in range(st_idx, list_len):
-            innerlist.append([players, playerlist[i]])
-        if len(innerlist) > 0:
-            newlist.append(innerlist)
+    for index1, player1 in enumerate(players):
+        for index2, player2 in enumerate(players):
+            if index1 < index2:
+                newlist.append((player1, player2))
     return newlist
